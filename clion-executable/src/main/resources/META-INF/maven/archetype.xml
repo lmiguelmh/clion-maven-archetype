@@ -1,0 +1,29 @@
+<archetype xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype/1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype/1.0.0 http://maven.apache.org/xsd/archetype-1.0.0.xsd">
+
+    <id>clion-executable</id>
+
+    <!--
+    according docs https://maven.apache.org/guides/mini/guide-creating-archetypes.html
+    there should be sources/testSources/resources/testResources.
+    All files are located in resources because in sources Maven will try to find ".java"
+
+    <sources>
+        <source>src/main/c/main.cpp</source>
+        <source>src/main/include/main.h</source>
+    </sources>
+
+    <testSources>
+        <source>src/test/c/main-test.cpp</source>
+    </testSources>
+    -->
+
+    <resources>
+        <resource>src/main/c/main.cpp</resource>
+        <resource>src/main/include/main.h</resource>
+        <resource>src/test/c/main-test.cpp</resource>
+        <resource>CMakeLists.txt</resource>
+    </resources>
+
+</archetype>

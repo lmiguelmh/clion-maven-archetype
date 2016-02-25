@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <packaging>nar</packaging>
+
+    <name>C/C++ NAR Project for CLion IDE</name>
+    <description>
+        C/C++ NAR Project ready to be open by CLion IDE.
+        CLion doesn't support compilation using the NAR plugin, it will use CMake instead. So if you want to compile and
+        install this project use the terminal (Alt+F12) you will need the compiler in your path. For msvc++ see
+        http://stackoverflow.com/a/34658125/2692914.
+        mvn compile
+        mvn package
+        mvn install
+    </description>
+    <url>https://github.com/maven-nar/</url>
+
+    <!--
+    <properties>
+      <skipTests>true</skipTests>
+    </properties>
+    -->
+	
+	<!-- 
+	If you setup your environment you could do this and easily have OpenCv, logger and other functionalities in your program!
+	See https://github.com/lmiguelmh to find the NAR projects for OpenCV binaries/Windows/VS12 used here
+	
+    <dependencies>
+        <dependency>
+            <groupId>org.opencv</groupId>
+            <artifactId>opencv-core</artifactId>
+            <version>2.4.10</version>
+            <type>nar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opencv</groupId>
+            <artifactId>opencv-highgui</artifactId>
+            <version>2.4.10</version>
+            <type>nar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.opencv</groupId>
+            <artifactId>opencv-imgproc</artifactId>
+            <version>2.4.10</version>
+            <type>nar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>my.commons</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0</version>
+            <type>nar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>zsummer.log4z</groupId>
+            <artifactId>log4z</artifactId>
+            <version>3.0</version>
+            <type>nar</type>
+        </dependency>
+    </dependencies>
+	-->
+
+    <build>
+        <defaultGoal>integration-test</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>com.github.maven-nar</groupId>
+                <artifactId>nar-maven-plugin</artifactId>
+                <version>3.2.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <libraries>
+                        <!--
+                        all of these configurations could be enabled at the same time
+                        the NAR plugin will generate an artifact for each one
+                        -->
+                        <!-- executable -->
+                        <library>
+                            <type>executable</type>
+                            <run>true</run>
+                        </library>
+
+                        <!-- static library
+                        <library>
+                          <type>static</type>
+                        </library>
+                        -->
+
+                        <!-- shared library
+                        <library>
+                          <type>shared</type>
+                        </library>
+                        -->
+                    </libraries>
+					
+					<!-- comment this if you don't want to execute the main-test.cpp everytime -->
+					<tests>
+						<test>
+							<name>NativeLibTest</name>
+							<link>static</link>
+						</test>
+					</tests>
+                </configuration>
+            </plugin>
+			
+        </plugins>
+    </build>
+
+</project>
