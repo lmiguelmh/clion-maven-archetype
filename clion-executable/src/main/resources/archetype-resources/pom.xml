@@ -30,6 +30,13 @@
 	If you setup your environment you could do this and easily have OpenCv, logger and other functionalities in your program!
 	See https://github.com/lmiguelmh to find the NAR projects for OpenCV binaries/Windows/VS12 used here
 	
+	For system libraries you could do (according to your requirement):
+	#pragma comment(lib, "user32.lib") //in your source file	
+	#pragma comment(lib, "gdi32.lib") 
+	#pragma comment(lib, "advapi32.lib")
+	...
+	This way you don't need to generate a NAR project for every .lib (wich I did for OpenCV)
+		
     <dependencies>
         <dependency>
             <groupId>org.opencv</groupId>
