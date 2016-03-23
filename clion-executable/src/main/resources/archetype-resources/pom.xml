@@ -96,12 +96,14 @@
             <artifactId>gtest</artifactId>
             <version>1.7.0</version>
             <type>nar</type>
+			<scope>test</scope>
         </dependency>
         <dependency>
             <groupId>google.gtest</groupId>
             <artifactId>gtest-main</artifactId>
             <version>1.7.0</version>
             <type>nar</type>
+			<scope>test</scope>
         </dependency>
     </dependencies>
 	-->

@@ -19,6 +19,8 @@ include_directories("src/main/include")
 #include_directories("target/nar/log4z-3.0-noarch/include")
 #commons - some commons functions 
 #include_directories("target/nar/commons-1.0-noarch/include")
+#gtest
+#include_directories("target/test-nar/gtest-1.7.0-noarch/include")
 
 #every file you add to the project should be added so CLion will recognize it
 set(SOURCE_FILES src/main/include/main.h src/main/c/main.cpp)
