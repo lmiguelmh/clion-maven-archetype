@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
     /* log4z: initialize logger
     ILog4zManager::getRef().setLoggerName(LOG4Z_MAIN_LOGGER_ID, "${artifactId}-test");
-    ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, "./");
+    ILog4zManager::getRef().setLoggerPath(LOG4Z_MAIN_LOGGER_ID, ".//");
     ILog4zManager::getRef().setLoggerLevel(LOG4Z_MAIN_LOGGER_ID, LOG_LEVEL_TRACE);
     ILog4zManager::getRef().setLoggerFileLine(LOG4Z_MAIN_LOGGER_ID, true);
     ILog4zManager::getRef().setLoggerDisplay(LOG4Z_MAIN_LOGGER_ID, true);

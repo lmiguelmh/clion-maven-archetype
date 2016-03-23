@@ -14,11 +14,10 @@
         Use the Terminal (Alt+F12) to compile, test, and install/deploy your project.
         Maven NAR 3.2.3 and older versions will require your tools in your PATH.
         Since 3.3.0 Maven NAR will try to autodetect your tools.
-        To configure CLion for msvc12 see http://stackoverflow.com/a/34658125/2692914 (Maven NAR<3.3.0)
+        To configure CLion for msvc12 see http://stackoverflow.com/a/34658125/2692914 (Maven NAR before 3.3.0)
         mvn compile
-        mvn package
-        mvn install
         mvn test
+        mvn install
     </description>
 
     <!--
@@ -28,18 +27,9 @@
     -->
 
     <!--
-    you could find some Maven NAR dependencies in https://github.com/lmiguelmh/ and https://github.com/maven-nar/nar-maven-plugin/wiki/Working-examples
-    if you want to build your own dependencies follow this SO answer (don't forget to give +1):
-    http://stackoverflow.com/questions/34076669/add-a-static-library-for-the-link-phase-of-a-maven-nar-project
-    for system libraries you can add in your source:
-    #pragma comment(lib, "user32.lib")
-    #pragma comment(lib, "gdi32.lib")
-    #pragma comment(lib, "advapi32.lib")
-    ...
-    Or, you can use `<linker/>` (see below).
+    See README.md
     -->
     <dependencies>
-
         <!-- LIBRARY DEPENDENCIES -->
         <!-- opencv
         <dependency>
@@ -227,10 +217,7 @@
                         -->
                     </tests>
 
-                    <!-- set wich toolset and sdk to use for msvc (override automatic detection)
-                    uncomment this to fix these issues:
-                    http://stackoverflow.com/q/35903652/2692914
-                    http://stackoverflow.com/q/35898892/2692914
+                    <!-- see README.md
                     <msvc>
                         <version>11.0</version>
                         <windowsSdkVersion>8.0</windowsSdkVersion>

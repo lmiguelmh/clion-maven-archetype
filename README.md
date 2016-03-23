@@ -12,7 +12,8 @@ Then, if you want to use your library in another project you only need to add th
             <type>nar</type>
         </dependency>
 
-For starters you need to:	
+For starters you need to:
+
 1. have Maven installed (and know the basics of it)
 2. install the archetype (clion-executable-install.bat)
 3. create a project using the archetype (clion-executable-new-project.bat)
@@ -20,8 +21,9 @@ For starters you need to:
 
 
 ## Using dependencies/libraries
-1. add your required <dependencies/> in `pom.xml`
-2. execute `mvn compile` in the terminal (Maven will bring your dependencies headers and libraries)
+
+1. add your required `<dependencies/>` in `pom.xml`
+2. execute `mvn compile` in the Terminal (Maven will bring your dependencies headers and libraries)
 3. add the `include_directories` and `target_link_libraries` in `CMakeLists.txt` and reload the project.
 4. enjoy CLion!
 You could find some library dependencies in https://github.com/lmiguelmh/ and https://github.com/maven-nar/nar-maven-plugin/wiki/Working-examples
@@ -31,28 +33,29 @@ You could find some library dependencies in https://github.com/lmiguelmh/ and ht
 If you want to build your own dependencies from compiled libraries follow this SO answer (don't forget to give +1):
 http://stackoverflow.com/questions/34076669/add-a-static-library-for-the-link-phase-of-a-maven-nar-project
 
-For system libraries you can add them in your source or use <linker/>:
+For system libraries you can add them in your source or use `<linker/>` in the `pom.xml` file:
 
-		#pragma comment(lib, "user32.lib")
-		#pragma comment(lib, "gdi32.lib")
-		#pragma comment(lib, "advapi32.lib")
-		...
+        #pragma comment(lib, "user32.lib")
+        #pragma comment(lib, "gdi32.lib")
+        #pragma comment(lib, "advapi32.lib")
+        ...
 
 Every dependency marked as a static or shared library could be used in other projects.
-1. modify the <configuration/> on your `pom.xml` 
-		<libraries>
-			<!-- static library
-			<library>
-			  <type>static</type>
-			</library>
-			-->
 
-			<!-- shared library
-			<library>
-			  <type>shared</type>
-			</library>
-			-->
-		</libraries>
+1. modify the `<configuration/>` on your `pom.xml`
+        <libraries>
+            <!-- static library
+            <library>
+              <type>static</type>
+            </library>
+            -->
+
+            <!-- shared library
+            <library>
+              <type>shared</type>
+            </library>
+            -->
+        </libraries>
 2. open the terminal and compile (`mvn compile`) and install your library on the repository (`mvn install`) 
 3. open your project and add the dependency in your `pom.xml`, for example:
 
@@ -63,14 +66,14 @@ Every dependency marked as a static or shared library could be used in other pro
             <type>nar</type>
         </dependency>
 
-		
+
 ## Configure your compiler 
 For setting which toolset and sdk to use, you could override automatic detection with the next configuration in your `pom.xml`. In older versions this will fix some issues too http://stackoverflow.com/q/35903652/2692914 http://stackoverflow.com/q/35898892/2692914 
 
-		<msvc>
-			<version>11.0</version>
-			<windowsSdkVersion>8.0</windowsSdkVersion>
-		</msvc>
+        <msvc>
+            <version>11.0</version>
+            <windowsSdkVersion>8.0</windowsSdkVersion>
+        </msvc>
 
 Finally, you should visit:
 - the official Maven page: http://maven.apache.org

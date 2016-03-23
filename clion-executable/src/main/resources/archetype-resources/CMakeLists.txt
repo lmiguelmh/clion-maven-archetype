@@ -7,12 +7,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 include_directories("src/main/include")
 
 #
-#1. add your required <dependencies/> in `pom.xml`
-#2. execute `mvn compile` in the terminal (Maven will bring your dependencies headers and libraries)
-#3. add the `include_directories` and `target_link_libraries` in `CMakeLists.txt` and reload the project.
-#4. enjoy CLion!
+#See README.md
 #
-#Library dependencies (you could find some in https://github.com/lmiguelmh/ and https://github.com/maven-nar/nar-maven-plugin/wiki/Working-examples)
+#Library dependencies
 #opencv
 #include_directories("target/nar/opencv-core-2.4.10-noarch/include")
 #include_directories("target/nar/opencv-highgui-2.4.10-noarch/include")
@@ -42,9 +39,6 @@ include_directories("src/main/include")
 #Test dependencies
 #gtest
 #include_directories("target/test-nar/gtest-1.7.0-noarch/include")
-#
-#if you want to build your own dependencies follow this SO answer (don't forget to give +1):
-#http://stackoverflow.com/questions/34076669/add-a-static-library-for-the-link-phase-of-a-maven-nar-project
 #
 
 #Project sources and headers
