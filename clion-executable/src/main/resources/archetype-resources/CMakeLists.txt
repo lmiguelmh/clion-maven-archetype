@@ -3,28 +3,53 @@ project(${artifactId})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-#this project's include directories
+#Project headers directory
 include_directories("src/main/include")
 
-#dependencies' include directories should be added here (as is pom.xml) (first you must mvn compile for target directory to be created)
-#in one project I have opencv libraries in my pom.xml and thus should be here too (see the NAR projects for OpenCV binaries/Windows/VS12 in https://github.com/lmiguelmh)
-#make sure you follow this answer to generate your own libraries http://stackoverflow.com/questions/34076669/add-a-static-library-for-the-link-phase-of-a-maven-nar-project
-#opencv-core
+#
+#1. add your required <dependencies/> in `pom.xml`
+#2. execute `mvn compile` in the terminal (Maven will bring your dependencies headers and libraries)
+#3. add the `include_directories` and `target_link_libraries` in `CMakeLists.txt` and reload the project.
+#4. enjoy CLion!
+#
+#Library dependencies (you could find some in https://github.com/lmiguelmh/ and https://github.com/maven-nar/nar-maven-plugin/wiki/Working-examples)
+#opencv
 #include_directories("target/nar/opencv-core-2.4.10-noarch/include")
-#opencv-highgui
 #include_directories("target/nar/opencv-highgui-2.4.10-noarch/include")
-#opencv-imgproc
 #include_directories("target/nar/opencv-imgproc-2.4.10-noarch/include")
-#log4z - a really good logger
-#include_directories("target/nar/log4z-3.0-noarch/include")
-#commons - some commons functions 
+#log4z
+#include_directories("target/nar/log4z-3.0.1-noarch/include")
+#rapidjson
+#include_directories("target/nar/rapidjson-1.0.2-noarch/include")
+#basen-lib
+#include_directories("target/nar/basen-lib-1.0-noarch/include")
+#
+#My dependencies
+#commons-lib
 #include_directories("target/nar/commons-1.0-noarch/include")
+#jdk-jni
+#include_directories("target/nar/jni-include-jdk1.7.0_80-noarch/include")
+#include_directories("target/nar/jni-include-win32-jdk1.7.0_80-noarch/include")
+#pipe-lib
+#include_directories("target/nar/pipe-lib-1.0-noarch/include")
+#jni-lib
+#include_directories("target/nar/jni-lib-1.0-noarch/include")
+#process-lib
+#include_directories("target/nar/process-lib-1.0-noarch/include")
+#winreg-lib
+#include_directories("target/nar/winreg-lib-1.0-noarch/include")
+#
+#Test dependencies
 #gtest
 #include_directories("target/test-nar/gtest-1.7.0-noarch/include")
+#
+#if you want to build your own dependencies follow this SO answer (don't forget to give +1):
+#http://stackoverflow.com/questions/34076669/add-a-static-library-for-the-link-phase-of-a-maven-nar-project
+#
 
-#every file you add to the project should be added so CLion will recognize it
+#Project sources and headers
 set(SOURCE_FILES src/main/include/main.h src/main/c/main.cpp)
-
 add_executable(${artifactId} ${SOURCE_FILES})
 
+#Tests sources and headers
 add_executable(${artifactId}-test src/test/c/main-test.cpp)
