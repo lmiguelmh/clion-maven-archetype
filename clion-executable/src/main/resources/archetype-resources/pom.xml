@@ -65,7 +65,7 @@
         <dependency>
             <groupId>zsummer.log4z</groupId>
             <artifactId>log4z</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.2</version>
             <type>nar</type>
         </dependency>
         -->
@@ -217,10 +217,16 @@
                         -->
                     </tests>
 
-                    <!-- see README.md
+                    <!-- VS2012 -->
                     <msvc>
                         <version>11.0</version>
                         <windowsSdkVersion>8.0</windowsSdkVersion>
+                    </msvc>
+
+                    <!-- VS2015 
+                    <msvc>
+                        <version>14.0</version>
+                        <windowsSdkVersion>10</windowsSdkVersion>
                     </msvc>
                     -->
 

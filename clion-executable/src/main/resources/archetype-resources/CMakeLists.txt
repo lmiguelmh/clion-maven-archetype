@@ -15,7 +15,7 @@ include_directories("src/main/include")
 #include_directories("target/nar/opencv-highgui-2.4.10-noarch/include")
 #include_directories("target/nar/opencv-imgproc-2.4.10-noarch/include")
 #log4z
-#include_directories("target/nar/log4z-3.0.1-noarch/include")
+#include_directories("target/nar/log4z-3.0.2-noarch/include")
 #rapidjson
 #include_directories("target/nar/rapidjson-1.0.2-noarch/include")
 #basen-lib
