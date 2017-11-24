@@ -15,9 +15,12 @@
         Maven NAR 3.2.3 and older versions will require your tools in your PATH.
         Since 3.3.0 Maven NAR will try to autodetect your tools.
         To configure CLion for msvc12 see http://stackoverflow.com/a/34658125/2692914 (Maven NAR before 3.3.0)
-        mvn compile
-        mvn test
-        mvn install
+			mvn compile
+			mvn test
+			mvn install
+		When JAVA_HOME is a 64bit JDK the artifacts will be compiled as 64bit artifacts. 
+		Change the JAVA_HOME to a 32bit valid JDK to compile 32bit artifacts.
+			set JAVA_HOME=c:\Program Files (x86)\java\jdk1.7.0_80
     </description>
 
     <!--
@@ -117,7 +120,7 @@
         <dependency>
             <groupId>lmiguelmh.pipe.lib</groupId>
             <artifactId>pipe-lib</artifactId>
-            <version>1.0</version>
+            <version>1.0_vs11_w8</version>
             <type>nar</type>
         </dependency>
         -->
@@ -126,7 +129,7 @@
         <dependency>
             <groupId>lmiguelmh.jni.lib</groupId>
             <artifactId>jni-lib</artifactId>
-            <version>1.0</version>
+            <version>1.0_vs11_w8</version>
             <type>nar</type>
         </dependency>
         -->
@@ -135,10 +138,28 @@
         <dependency>
             <groupId>lmiguelmh.process.lib</groupId>
             <artifactId>process-lib</artifactId>
-            <version>1.0</version>
+            <version>1.0_vs11_w8</version>
             <type>nar</type>
         </dependency>
         -->
+		
+		<!-- strings-lib
+        <dependency>
+            <groupId>lmiguelmh.strings.lib</groupId>
+            <artifactId>strings-lib</artifactId>
+            <version>1.0_vs11_w8</version>
+            <type>nar</type>
+        </dependency>
+		-->
+
+        <!-- file-lib
+        <dependency>
+            <groupId>lmiguelmh.file.lib</groupId>
+            <artifactId>file-lib</artifactId>
+            <version>1.0_vs11_w8</version>
+            <type>nar</type>
+        </dependency>
+		-->
 
         <!-- winreg-lib
         <dependency>
